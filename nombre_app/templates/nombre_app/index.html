@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Esto es lo que va arribita</title>
+
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    {% bootstrap_messages %}
+
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Logo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="{% url 'index' %}">Bievenida <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="{% url 'formulario' %}">Formulario</a>
+    </div>
+  </div>
+</nav>
+
+
     <h1>Esto es un header grande</h1>
     <h2>Esto ya no tan grande</h2>
     <h6>Éste ya es chiquito</h6>

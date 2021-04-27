@@ -3,31 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <title>Formulario</title>
+
+    {% load bootstrap4 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript jquery='full' %}
+    {% bootstrap_messages %}
+
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Logo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="{% url 'index' %}">Bievenida</a>
+      <a class="nav-item nav-link active" href="{% url 'formulario' %}">Formulario <span class="sr-only">(current)</span></a>
+    </div>
+  </div>
+</nav>
+
+
+    <div class="container">
     <form action="{% url 'resultados' %}" method="POST">
         {% csrf_token %}
+        <div class="form-group">
         <label for="fname">Primer nombre: </label>
-        <input type="text" id="fname" name="fname"> <br>
+        <input type="text" class="form-control" id="fname" name="fname"> <br>
+        </div>
 
+        <div class="form-group">
         <label for="lname">Segundo nombre: </label>
-        <input type="text" id="lname" name="lname"> <br><br><br>
+        <input type="text" class="form-control" id="lname" name="lname"> <br><br><br>
+        </div>
 
-        <input type="checkbox" id="need1" name="need1" value="sueño">
-        <label for="need1"> Tengo sueño</label><br>
-        <input type="checkbox" id="need2" name="need2" value="hambre">
-        <label for="need2"> Tengo hambre</label><br>
-        <input type="checkbox" id="need3" name="need3" value="tristeza">
-        <label for="need3"> Tengo pena</label><br><br><br>
+        <div class="form-group">
+            <div class="form-check form-check-inline">
+            <input type="checkbox" class="form-check-input" id="need1" name="need1" value="sueño">
+            <label class="form-check-label" for="need1"> Tengo sueño</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+            <input type="checkbox" class="form-check-input" id="need2" name="need2" value="hambre">
+            <label class="form-check-label" for="need2"> Tengo hambre</label><br>
+            </div>
+            <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="need3" name="need3" value="tristeza">
+            <label class="form-check-label" for="need3"> Tengo pena</label><br><br><br>
+            </div>
+        </div>
 
         ¿Quieres un 7?<br>
-        <input type="radio" id="si1" name="nota" value="sí">
-        <label for="si1">Sí</label><br>
-        <input type="radio" id="si2" name="nota" value="síiiiiiiii">
-        <label for="si2"><span style="color:green;">Sí, pero en verde</span></label><br>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="si1" name="nota" value="sí">
+            <label class="form-check-label" for="si1">Sí</label><br>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="si2" name="nota" value="síiiiiiiii">
+            <label class="form-check-label" for="si2"><span style="color:green;">Sí, pero en verde</span></label><br>
+        </div>
 
+        <div class="form-group">
         <input type="submit" value="Enviar">
+        </div>
     </form>
+    </div>
 
 </body>
 </html>
